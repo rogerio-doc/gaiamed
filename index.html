@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gaia Serviços Médicos | Apoio à Saúde</title>
+<meta name="description" content="Gaia Serviços Médicos — Serviços de Apoio à Saúde, incluindo atendimento por telessaúde.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1A2E44;
+    --petrol: #2C4A6E;
+    --gold: #C9A04E;
+    --cream: #F7F6F3;
+    --ink: #2A2D31;
+    --line: rgba(26,46,68,0.14);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 { font-family: 'Fraunces', serif; color: var(--navy); }
+
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* HEADER */
+  header {
+    padding: 36px 0 0;
+  }
+  .brandrow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 28px;
+  }
+  .brandrow img {
+    height: 84px;
+    width: auto;
+  }
+  .brandrow .sep {
+    width: 1px;
+    height: 40px;
+    background: var(--line);
+  }
+  .brandrow .tag {
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--petrol);
+    font-weight: 500;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 72px 0 56px;
+  }
+  .eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-size: 44px;
+    font-weight: 500;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    max-width: 620px;
+  }
+  .hero p.lead {
+    margin-top: 22px;
+    font-size: 18px;
+    color: var(--petrol);
+    max-width: 540px;
+    font-weight: 400;
+  }
+
+  /* DIVIDER WITH HEART MARK */
+  .mark-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 8px 0 48px;
+  }
+  .mark-divider .line { flex: 1; height: 1px; background: var(--line); }
+  .mark-divider svg { width: 18px; height: 18px; opacity: 0.55; }
+
+  /* SERVICE BLOCK */
+  .service {
+    padding: 8px 0 56px;
+    border-bottom: 1px solid var(--line);
+  }
+  .service h2 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+  .service p {
+    font-size: 16px;
+    color: #4A4F56;
+    max-width: 620px;
+  }
+  .pillrow {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+  }
+  .pill {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--navy);
+    background: rgba(44,74,110,0.07);
+    border: 1px solid var(--line);
+    padding: 7px 14px;
+    border-radius: 100px;
+  }
+
+  /* INFO GRID */
+  .info {
+    padding: 56px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    border-bottom: 1px solid var(--line);
+  }
+  .info .col h3 {
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--petrol);
+    font-weight: 600;
+    margin-bottom: 14px;
+    font-family: 'Inter', sans-serif;
+  }
+  .info .col .item {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+  .info .col .item .label {
+    display: block;
+    font-size: 12.5px;
+    color: #8A8F96;
+    margin-bottom: 2px;
+  }
+
+  /* CONTACT */
+  .contact {
+    padding: 56px 0;
+  }
+  .contact h3 {
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--petrol);
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-family: 'Inter', sans-serif;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .contact-grid .item .label {
+    display: block;
+    font-size: 12.5px;
+    color: #8A8F96;
+    margin-bottom: 4px;
+  }
+  .contact-grid .item a,
+  .contact-grid .item span {
+    font-size: 16px;
+    color: var(--navy);
+    text-decoration: none;
+  }
+  .contact-grid .item a:hover { color: var(--petrol); }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 28px 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  footer .small {
+    font-size: 12.5px;
+    color: #8A8F96;
+  }
+
+  @media (max-width: 620px) {
+    .hero h1 { font-size: 32px; }
+    .info { grid-template-columns: 1fr; gap: 28px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 20px; }
+    .brandrow img { height: 64px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brandrow">
+      <img src="logo.png" alt="Gaia Serviços de Apoio à Saúde">
+      <div class="sep"></div>
+      <div class="tag">Serviços de Apoio à Saúde</div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <div class="eyebrow">Gaia Serviços Médicos</div>
+    <h1>Cuidado acompanhado, onde quer que você esteja.</h1>
+    <p class="lead">Atendimento de apoio à saúde estruturado para oferecer suporte clínico próximo, contínuo e acessível.</p>
+  </section>
+
+  <div class="wrap">
+    <div class="mark-divider">
+      <div class="line"></div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="#2C4A6E" stroke-width="1.6"><path d="M12 21s-7.5-4.6-10-9.2C.6 8.1 2.6 4 6.5 4 9 4 11 5.6 12 7.5 13 5.6 15 4 17.5 4 21.4 4 23.4 8.1 22 11.8 19.5 16.4 12 21 12 21z"/></svg>
+      <div class="line"></div>
+    </div>
+  </div>
+
+  <section class="service wrap">
+    <h2>Telessaúde</h2>
+    <p>A Gaia disponibiliza atendimento remoto por telessaúde, ampliando o acesso ao suporte de saúde com a mesma atenção e responsabilidade do atendimento presencial.</p>
+    <div class="pillrow">
+      <span class="pill">Atendimento remoto</span>
+      <span class="pill">Suporte contínuo</span>
+      <span class="pill">Acesso facilitado</span>
+    </div>
+  </section>
+
+  <section class="info wrap">
+    <div class="col">
+      <h3>Identificação</h3>
+      <div class="item"><span class="label">Razão social</span>Gaia Serviços Médicos</div>
+      <div class="item" style="margin-top:14px;"><span class="label">CNPJ</span>47.765.386/0001-96</div>
+    </div>
+    <div class="col">
+      <h3>Classificação</h3>
+      <div class="item"><span class="label">Tipo de estabelecimento</span>Serviços de Apoio à Saúde — Telessaúde</div>
+    </div>
+  </section>
+
+  <section class="contact wrap">
+    <h3>Contato</h3>
+    <div class="contact-grid">
+      <div class="item">
+        <span class="label">Telefone / WhatsApp</span>
+        <a href="tel:+5500000000000">[telefone]</a>
+      </div>
+      <div class="item">
+        <span class="label">E-mail</span>
+        <a href="mailto:contato@gaiamed.com.br">contato@gaiamed.com.br</a>
+      </div>
+      <div class="item">
+        <span class="label">Site</span>
+        <a href="https://gaiamed.com.br">gaiamed.com.br</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div class="small">© 2026 Gaia Serviços Médicos</div>
+  <div class="small">gaiamed.com.br</div>
+</footer>
+
+</body>
+</html>
