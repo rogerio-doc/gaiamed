@@ -4,241 +4,197 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gaia Med - Cuidado acompanhado, onde quer que você esteja</title>
-    
+
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    
-    <!-- Font Awesome para os ícones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css ">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --primary-color: #0f4c75;
-            --secondary-color: #3282b8;
-            --text-color: #333;
-            --light-bg: #f8f9fa;
-            --white: #ffffff;
+            --ink: #0F2D4E;
+            --accent: #3585AC;
+            --accent-light: #8FC3D9;
+            --bg: #F5F7F9;
+            --muted: #46596B;
+            --border: #DCE3E9;
+            --card: #FFFFFF;
         }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Public Sans', sans-serif; color: var(--ink); background: var(--bg); line-height: 1.6; }
+        h1, h2, h3, .display { font-family: 'Sora', sans-serif; }
+        a { color: inherit; }
+        .wrap { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        /* Header */
+        header.site { display: flex; align-items: center; justify-content: space-between; gap: 24px; max-width: 1120px; margin: 0 auto; padding: 20px 32px; }
+        header.site .logo img { height: 76px; display: block; }
+        nav.main { display: flex; align-items: center; gap: 28px; font-size: 15px; font-weight: 500; }
+        nav.main a { text-decoration: none; transition: color 0.2s; }
+        nav.main a:hover { color: var(--accent); }
+        nav.main a.btn { background: var(--accent); color: var(--bg); padding: 11px 22px; border-radius: 999px; font-weight: 600; }
+        nav.main a.btn:hover { filter: brightness(1.1); color: var(--bg); }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { color: var(--text-color); line-height: 1.6; background-color: var(--white); }
+        /* Hero */
+        .hero { max-width: 1120px; margin: 0 auto; padding: 56px 32px 80px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center; }
+        .eyebrow { margin: 0 0 18px; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+        .hero h1 { font-weight: 600; font-size: 52px; line-height: 1.12; letter-spacing: -0.02em; margin: 0 0 22px; text-wrap: balance; }
+        .hero h1 span { color: var(--accent); }
+        .hero p.lead { margin: 0 0 32px; font-size: 18px; line-height: 1.65; color: var(--muted); max-width: 46ch; }
+        .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+        .btn-solid { background: var(--ink); color: var(--bg); text-decoration: none; padding: 15px 30px; border-radius: 999px; font-weight: 600; font-size: 16px; transition: background 0.2s; }
+        .btn-solid:hover { background: var(--accent); }
+        .btn-ghost { text-decoration: none; padding: 15px 22px; border: 1.5px solid #C3CFD9; border-radius: 999px; font-weight: 600; font-size: 16px; transition: all 0.2s; }
+        .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+        .hero-media { width: 100%; height: 440px; border-radius: 28px; overflow: hidden; background: linear-gradient(135deg, var(--accent-light), var(--accent)); display: grid; place-items: center; }
+        .hero-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .hero-media .media-hint { display: none; flex-direction: column; align-items: center; text-align: center; gap: 4px; color: rgba(255,255,255,0.92); font-size: 15px; font-weight: 500; line-height: 1.5; }
+        .hero-media .media-hint code { font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 6px; }
 
-        /* Header / Hero Section */
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--white);
-            padding: 4rem 2rem;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
+        /* Benefícios */
+        .benefits { background: var(--ink); color: var(--bg); padding: 88px 32px; }
+        .benefits h2 { font-weight: 600; font-size: 36px; letter-spacing: -0.01em; margin: 0 0 48px; }
+        .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+        .benefit { border-top: 1px solid rgba(245,247,249,0.25); padding-top: 24px; }
+        .benefit h3 { font-weight: 600; font-size: 21px; color: var(--accent-light); margin: 0 0 12px; }
+        .benefit p { margin: 0; font-size: 15.5px; line-height: 1.65; color: rgba(245,247,249,0.78); }
 
-        .logo {
-            max-width: 180px;
-            height: auto;
-            margin-bottom: 1.5rem;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 12px 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-        }
+        /* Como funciona */
+        .how { max-width: 1120px; margin: 0 auto; padding: 96px 32px; }
+        .how h2 { font-weight: 600; font-size: 36px; letter-spacing: -0.01em; margin: 0 0 12px; }
+        .how .sub { margin: 0 0 48px; font-size: 17px; color: var(--muted); }
+        .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+        .step { background: var(--card); border: 1px solid var(--border); border-radius: 22px; padding: 30px 28px; }
+        .step .num { width: 44px; height: 44px; border-radius: 50%; background: var(--accent); color: var(--bg); display: grid; place-items: center; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 19px; margin-bottom: 20px; }
+        .step h4 { font-size: 19px; font-weight: 700; margin: 0 0 10px; }
+        .step p { margin: 0; font-size: 15.5px; line-height: 1.65; color: var(--muted); }
 
-        header h1 { font-size: 2.5rem; margin-bottom: 1rem; font-weight: 700; }
-        header p { font-size: 1.2rem; max-width: 800px; margin: 0 auto 2rem auto; opacity: 0.9; }
-
-        .cta-button {
-            display: inline-block;
-            background-color: var(--white);
-            color: var(--primary-color);
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .cta-button:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-
-        /* Features Section */
-        .features { 
-            padding: 4rem 2rem; 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 2rem; 
-        }
-        .feature-card { 
-            background: var(--light-bg); 
-            padding: 2rem; 
-            border-radius: 12px; 
-            border-left: 4px solid var(--secondary-color); 
-        }
-        .feature-card h3 { color: var(--primary-color); margin-bottom: 0.5rem; font-size: 1.3rem; }
-
-        /* How it Works Section */
-        .how-it-works { background-color: var(--light-bg); padding: 4rem 2rem; text-align: center; }
-        .how-it-works h2 { color: var(--primary-color); margin-bottom: 3rem; font-size: 2rem; }
-        .steps-container { 
-            max-width: 1000px; 
-            margin: 0 auto; 
-            display: flex; 
-            justify-content: space-around; 
-            flex-wrap: wrap; 
-            gap: 2rem; 
-        }
-        .step { flex: 1; min-width: 250px; }
-        
-        .step-icon {
-            display: inline-flex; 
-            align-items: center; 
-            justify-content: center;
-            width: 60px; 
-            height: 60px; 
-            background-color: var(--secondary-color);
-            color: white; 
-            border-radius: 50%; 
-            font-size: 1.8rem; 
-            margin-bottom: 1rem;
-            box-shadow: 0 4px 10px rgba(50, 130, 184, 0.3);
-        }
+        /* Contato */
+        .contact-wrap { max-width: 1120px; margin: 0 auto; padding: 0 32px 96px; }
+        .contact { background: var(--accent); color: var(--bg); border-radius: 28px; padding: 64px 56px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; }
+        .contact h2 { font-weight: 600; font-size: 34px; letter-spacing: -0.01em; margin: 0 0 14px; text-wrap: balance; }
+        .contact p { margin: 0; font-size: 17px; line-height: 1.6; color: rgba(245,247,249,0.85); max-width: 44ch; }
+        .contact-actions { display: flex; flex-direction: column; gap: 14px; }
+        .contact-actions a { text-decoration: none; text-align: center; border-radius: 999px; }
+        .contact-actions .call { background: var(--bg); color: var(--ink); padding: 16px 28px; font-weight: 700; font-size: 17px; }
+        .contact-actions .call:hover { background: #fff; }
+        .contact-actions .mail { border: 1.5px solid rgba(245,247,249,0.5); color: var(--bg); padding: 15px 28px; font-weight: 600; font-size: 15px; }
+        .contact-actions .mail:hover { border-color: var(--bg); }
 
         /* Footer */
-        footer { 
-            background-color: var(--primary-color); 
-            color: var(--white); 
-            padding: 3rem 2rem; 
-            text-align: center; 
-            font-size: 0.95rem; 
-        }
-        
-        .contact-info {
-            margin-bottom: 1.5rem;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .contact-item i {
-            font-size: 1.1rem;
-            color: #bbe1fa;
-        }
+        footer.site { border-top: 1px solid var(--border); padding: 36px 32px 48px; }
+        footer.site .inner { max-width: 1120px; margin: 0 auto; display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; font-size: 13.5px; color: var(--muted); line-height: 1.7; }
+        footer.site strong { color: var(--ink); }
+        footer.site .note { max-width: 40ch; }
 
-        .contact-item a {
-            color: var(--white);
-            text-decoration: none;
-            transition: opacity 0.2s;
-        }
-
-        .contact-item a:hover {
-            opacity: 0.8;
-            text-decoration: underline;
-        }
-
-        .legal-info { 
-            margin-top: 1.5rem; 
-            padding-top: 1.5rem; 
-            border-top: 1px solid rgba(255,255,255,0.2); 
-            opacity: 0.8; 
-            font-size: 0.85rem;
-        }
-
-        @media (max-width: 768px) {
-            header h1 { font-size: 2rem; }
-            .steps-container { flex-direction: column; align-items: center; }
-            .logo { max-width: 150px; padding: 10px 16px; }
-            .contact-info { flex-direction: column; gap: 1rem; }
-            
-            /* Centraliza os cards no mobile */
-            .features {
-                grid-template-columns: 1fr;
-                justify-items: center;
-            }
-            .feature-card {
-                width: 100%;
-                max-width: 400px;
-            }
+        @media (max-width: 860px) {
+            header.site { flex-wrap: wrap; }
+            nav.main { gap: 18px; font-size: 14px; }
+            header.site .logo img { height: 60px; }
+            .hero { grid-template-columns: 1fr; gap: 36px; padding: 40px 32px 60px; }
+            .hero h1 { font-size: 40px; }
+            .hero-media { height: 300px; }
+            .benefits-grid, .steps { grid-template-columns: 1fr; }
+            .contact { grid-template-columns: 1fr; padding: 44px 32px; }
+            .benefits, .how { padding-top: 64px; padding-bottom: 64px; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <img src="logo.png" alt="Logo Gaia Med" class="logo" onerror="this.style.display='none'">
-        
-        <h1>Cuidado acompanhado, onde quer que você esteja.</h1>
-        <p>A Gaia disponibiliza atendimento remoto por telessaúde, ampliando o acesso ao suporte de saúde com a mesma atenção e responsabilidade do atendimento presencial.</p>
-        <a href="#contato" class="cta-button">Fale com a Gaia</a>
+    <header class="site">
+        <a href="#" class="logo"><img src="logo.png" alt="Gaia — Serviços de Apoio à Saúde"></a>
+        <nav class="main">
+            <a href="#beneficios">Benefícios</a>
+            <a href="#como-funciona">Como funciona</a>
+            <a href="#contato" class="btn">Fale com a Gaia</a>
+        </nav>
     </header>
 
-    <section class="features">
-        <div class="feature-card">
-            <h3>Atendimento Remoto</h3>
-            <p>Suporte clínico conduzido à distância, com a estrutura necessária para cada caso, garantindo segurança e eficácia.</p>
+    <section class="hero">
+        <div>
+            <p class="eyebrow">Telessaúde · Atendimento remoto</p>
+            <h1>Cuidado acompanhado, onde quer que você <span>esteja</span>.</h1>
+            <p class="lead">A Gaia disponibiliza atendimento remoto por telessaúde, ampliando o acesso ao suporte de saúde com a mesma atenção e responsabilidade do atendimento presencial.</p>
+            <div class="hero-actions">
+                <a href="#contato" class="btn-solid">Fale com a Gaia</a>
+                <a href="tel:+554130278527" class="btn-ghost">(41) 3027-8527</a>
+            </div>
         </div>
-        <div class="feature-card">
-            <h3>Suporte Contínuo</h3>
-            <p>Continuidade no cuidado, sem depender de deslocamento ou disponibilidade presencial. Seu acompanhamento não para.</p>
-        </div>
-        <div class="feature-card">
-            <h3>Acesso Facilitado</h3>
-            <p>Redução de barreiras geográficas e logísticas no acesso ao suporte de saúde. Tecnologia a favor do seu bem-estar.</p>
+        <div class="hero-media">
+            <!-- Adicione hero.jpg na raiz do repositório para exibir a foto aqui -->
+            <img src="hero.jpg" alt="Profissional em teleconsulta" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="media-hint">Adicione <code>hero.jpg</code><br>na raiz do repositório</span>
         </div>
     </section>
 
-    <section class="how-it-works">
+    <section class="benefits" id="beneficios">
+        <div class="wrap">
+            <h2>Por que atendimento remoto?</h2>
+            <div class="benefits-grid">
+                <div class="benefit">
+                    <h3>Atendimento Remoto</h3>
+                    <p>Suporte clínico conduzido à distância, com a estrutura necessária para cada caso, garantindo segurança e eficácia.</p>
+                </div>
+                <div class="benefit">
+                    <h3>Suporte Contínuo</h3>
+                    <p>Continuidade no cuidado, sem depender de deslocamento ou disponibilidade presencial. Seu acompanhamento não para.</p>
+                </div>
+                <div class="benefit">
+                    <h3>Acesso Facilitado</h3>
+                    <p>Redução de barreiras geográficas e logísticas no acesso ao suporte de saúde. Tecnologia a favor do seu bem-estar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how" id="como-funciona">
         <h2>Como funciona o atendimento?</h2>
-        <div class="steps-container">
+        <p class="sub">Três passos simples, do agendamento ao acompanhamento contínuo.</p>
+        <div class="steps">
             <div class="step">
-                <div class="step-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                <div class="num">1</div>
                 <h4>Agendamento Online</h4>
                 <p>Escolha o melhor horário através da nossa plataforma segura.</p>
             </div>
             <div class="step">
-                <div class="step-icon"><i class="fa-solid fa-video"></i></div>
+                <div class="num">2</div>
                 <h4>Consulta por Vídeo</h4>
                 <p>Conecte-se com nossos profissionais de qualquer lugar com internet.</p>
             </div>
             <div class="step">
-                <div class="step-icon"><i class="fa-solid fa-user-doctor"></i></div>
+                <div class="num">3</div>
                 <h4>Acompanhamento</h4>
                 <p>Receba orientações, prescrições e follow-up contínuo.</p>
             </div>
         </div>
     </section>
 
-    <footer id="contato">
-        <div class="contact-info">
-            <div class="contact-item">
-                <i class="fa-solid fa-phone"></i>
-                <a href="tel:+554130278527">(41) 3027-8527</a>
+    <section class="contact-wrap" id="contato">
+        <div class="contact">
+            <div>
+                <h2>Seu acompanhamento não precisa esperar.</h2>
+                <p>Entre em contato e entenda como a telessaúde da Gaia pode apoiar o seu cuidado.</p>
             </div>
-            <div class="contact-item">
-                <i class="fa-solid fa-envelope"></i>
-                <a href="mailto:correspondencias@gaiamed.com.br">correspondencias@gaiamed.com.br</a>
+            <div class="contact-actions">
+                <a href="tel:+554130278527" class="call">Ligar: (41) 3027-8527</a>
+                <a href="mailto:correspondencias@gaiamed.com.br" class="mail">correspondencias@gaiamed.com.br</a>
             </div>
         </div>
-        
-        <p><strong>Gaia Med - Telessaúde</strong></p>
-        
-        <div class="legal-info">
-            <p>Razão Social: Gaia Serviços de Apoio à Saúde Ltda</p>
-            <p>CNPJ: 47.765.386/0001-96</p>
-            <p>Tipo de Estabelecimento: Serviços de Apoio à Saúde — Telessaúde</p>
+    </section>
+
+    <footer class="site">
+        <div class="inner">
+            <div>
+                <p><strong>Gaia Med — Telessaúde</strong></p>
+                <p>Razão Social: Gaia Serviços de Apoio à Saúde Ltda</p>
+                <p>CNPJ: 47.765.386/0001-96</p>
+            </div>
+            <p class="note">Serviços de Apoio à Saúde — Telessaúde. Atendimento remoto com segurança e responsabilidade.</p>
         </div>
     </footer>
 
